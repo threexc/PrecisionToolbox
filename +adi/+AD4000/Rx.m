@@ -10,10 +10,15 @@ classdef Rx < adi.AD400x.Base & matlabshared.libiio.base & adi.common.Attribute
     %
     % `AD4000 Datasheet <https://www.analog.com/media/en/technical-documentation/data-sheets/ad4000-4004-4008.pdf>`_
 
+    % Channel names
+    properties (Nontunable, Hidden, Constant)
+        channel_names = {'voltage0'}
+    end
+
     methods
         %% Constructor
         function obj = Rx(varargin)
-            obj = obj@adi.AD400x.Base('ad4000', 'ad4000', 'int16', varargin{:});
+            obj = obj@adi.AD400x.Base('ad4000', 'ad4000', 'uint16', varargin{:});
             obj.enableExplicitPolling = false;
             obj.EnabledChannels = 1;
             obj.BufferTypeConversionEnable = true;

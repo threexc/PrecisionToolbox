@@ -10,6 +10,11 @@ classdef Rx < adi.AD400x.Base & matlabshared.libiio.base & adi.common.Attribute
     %
     % `AD4011 Datasheet <https://www.analog.com/media/en/technical-documentation/data-sheets/ad4003-4007-4011.pdf>`_
 
+    % Channel names
+    properties (Nontunable, Hidden, Constant)
+        channel_names = {'voltage0-voltage1'}
+    end
+
     methods
         %% Constructor
         function obj = Rx(varargin)
